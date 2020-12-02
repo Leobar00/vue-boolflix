@@ -53,9 +53,12 @@ header img {
     overflow: hidden;
     
     
+    
 }
 .cd:hover{
     opacity: 0.7;
+    transform: scale(1.05);
+
 }
 
 .cd img {

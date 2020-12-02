@@ -4,10 +4,6 @@ const app = new Vue({
        search:'',
        resultArray:[], 
     },
-    mounted(){
-       
-        
-    },
     methods:{
         filter(){
             this.resultArray = [];
