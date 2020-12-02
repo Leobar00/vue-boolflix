@@ -28,17 +28,24 @@
                 <div class="container">
                     <img src="img/netflix.png" alt="logo" />
                 </div>
+                <span class="search-bar">
+                    <input type="text" placeholder=" Cerca..." v-model="search" @keyup.enter="filter">
+                </span>
                 
         
             </header>
         
-            <div class="cds-container container">
-            <div class="cd">
-                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>Ten's Summoners Tales</h3>
-                <span class="author">Sting</span>
-                <span class="year">1993</span>
-            </div>
+            <div class="cds-container">
+            
+
+                <div class="cd" v-for="el in resultArray">
+                    <img :src="'https://image.tmdb.org/t/p/w500' + el.poster_path" alt="">
+                    <h3>{{el.title}}</h3>
+                    <span class="author">{{el.original_title}}</span>
+                    <span class="language">{{el.original_language}}</span>
+                    <span class="voto">{{el.vote_average}}</span>
+                </div>
+            
             </div>
         
         </div>

@@ -11,9 +11,14 @@ body {
 }
 
 .container {
-    width: 1070px;
+    width: 50%;
     height: 100%;
     margin: 0 auto;
+    float: left;
+}
+.container img{
+    height: 40px;
+    margin: 15px;
 }
 
 header {
@@ -42,19 +47,24 @@ header img {
     flex-basis: 200px;
     padding: 20px;
     margin: 10px 20px;
-    height: 360px;
+    height: 380px;
     background: rgb(46, 58, 70);
     text-align: center;
+    
+    
+}
+.cd:hover{
+    opacity: 0.7;
 }
 
 .cd img {
-    max-width: 100%;
+    width: 85%;
 }
 
 .cd h3 {
-    margin: 20px 0;
+    margin: 5px 0;
     color: white;
-    font-size: 22px;
+    font-size: 20px;
     text-transform: uppercase;
 }
 
@@ -62,7 +72,29 @@ header img {
     color: grey;
     font-size: 20px;
 }
-
-.cd span.year {
+.cd span.language{
     color: grey;
+    font-size: 20px;
+}
+.cd span.voto {
+    color: grey;
+}
+.search-bar{
+    float: right;
+    width: 20%;
+    margin-right: px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.search-bar input{
+    border-radius: 5px;
+    box-shadow: 8px 8px #1e2d3b;
+    height: 24px;
+}
+.cd span{
+    margin-top: 15px;
+}
+.cd img{
+    height: 50%;
 }
