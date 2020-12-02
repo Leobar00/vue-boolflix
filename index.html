@@ -29,7 +29,8 @@
                     <img src="img/netflix.png" alt="logo" />
                 </div>
                 <span class="search-bar">
-                    <input type="text" placeholder=" Cerca..." v-model="search" @keyup.enter="filter">
+                    <input type="text" placeholder=" Cerca..." v-model="search" @keyup.enter="filter" class="input">
+                    <button @click="filter">Cerca</button>
                 </span>
                 
         

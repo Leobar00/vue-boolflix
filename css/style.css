@@ -50,6 +50,7 @@ header img {
     height: 380px;
     background: rgb(46, 58, 70);
     text-align: center;
+    overflow: hidden;
     
     
 }
@@ -58,11 +59,12 @@ header img {
 }
 
 .cd img {
-    width: 85%;
+    width: 90%;
+    height: 50%;
 }
 
 .cd h3 {
-    margin: 5px 0;
+    margin: 4px 0;
     color: white;
     font-size: 20px;
     text-transform: uppercase;
@@ -95,6 +97,17 @@ header img {
 .cd span{
     margin-top: 15px;
 }
-.cd img{
-    height: 50%;
+
+.search-bar button{
+    margin-left: 8px;
+    height: 27px;
+    color:#1e2d3b ;
+    background-color: white;
+    border-radius: 7px;
+    padding: 0 8px;
+
+
+}
+.input{
+    padding-left: 3px;
 }
