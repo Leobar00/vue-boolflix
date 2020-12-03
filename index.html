@@ -8,7 +8,7 @@
         <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
 
         <!-- Font-awesome CDN -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,15 +41,41 @@
 
                 <div class="cd" v-for="el in resultArray">
                     <img :src="'https://image.tmdb.org/t/p/w500' + el.poster_path" alt="">
+
                     <h3>{{el.title}}</h3>
+
                     <span class="author">{{el.original_title}}</span>
-                    <span class="language">{{el.original_language}}</span>
-                    <span class="voto">{{el.vote_average}}</span>
+
+                    <span class="language"><img  :src="'img/'+el.original_language+'.png'" alt="">
+
+                    <div v-for="">
+                        <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(el.vote_average)"></i></span>
+
+                    </div>
                 </div>
+                <!-- serie tv -->
+                <div class="cd" v-for="serie in serieTv">
+                    <img :src="'https://image.tmdb.org/t/p/w500' + serie.poster_path" alt="">
+
+                    <h3>{{serie.name}}</h3>
+
+                    <span class="author">{{serie.original_name}} <br>
+
+                    <span class="language"><img :src="'img/'+serie.original_language+'.png'" alt="">
+                    </span> <br>
+
+                    <div v-for="">
+                        <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(serie.vote_average)"></i></span>
+                    
+                    </div>
+                </div>
+                
             
             </div>
+       
         
         </div>
+        
 
 
 
