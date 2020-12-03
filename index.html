@@ -30,7 +30,7 @@
                 </div>
                 <span class="search-bar">
                     <input type="text" placeholder=" Cerca..." v-model="search" @keyup.enter="filter" class="input">
-                    <button @click="filter">Cerca</button>
+                    <button @click="filter">Invia</button>
                 </span>
                 
         
@@ -40,33 +40,47 @@
             
 
                 <div class="cd" v-for="el in resultArray">
-                    <img :src="'https://image.tmdb.org/t/p/w500' + el.poster_path" alt="">
+                    <!-- immagine copertina -->
+                    <div class="front"> 
 
-                    <h3>{{el.title}}</h3>
+                        <img :src="'https://image.tmdb.org/t/p/w500' + el.poster_path" :alt="el.title">
 
-                    <span class="author">{{el.original_title}}</span>
+                    </div>
+                    <!-- specifiche tecniche -->
+                    <div class="back">
 
-                    <span class="language"><img  :src="'img/'+el.original_language+'.png'" alt="">
-
-                    <div v-for="">
-                        <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(el.vote_average)"></i></span>
-
+                        <p><strong>Titolo: </strong>{{el.title}}</p> <br>
+    
+                        <p class="author"><strong>Titolo originale: </strong>{{el.original_title}}</p> <br>
+    
+                        <p class="language"><img  :src="'img/'+el.original_language+'.png'" alt=""></p><br>
+    
+                        <div v-for="">
+                            <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(el.vote_average)"></i></span>
+    
+                        </div>
                     </div>
                 </div>
                 <!-- serie tv -->
+                
                 <div class="cd" v-for="serie in serieTv">
-                    <img :src="'https://image.tmdb.org/t/p/w500' + serie.poster_path" alt="">
+                    <div class="front">
+                        <img :src="'https://image.tmdb.org/t/p/w500' + serie.poster_path" alt="">
 
-                    <h3>{{serie.name}}</h3>
+                    </div>
+                    <div class="back">
 
-                    <span class="author">{{serie.original_name}} <br>
-
-                    <span class="language"><img :src="'img/'+serie.original_language+'.png'" alt="">
-                    </span> <br>
-
-                    <div v-for="">
-                        <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(serie.vote_average)"></i></span>
-                    
+                        <h3>{{serie.name}}</h3>
+    
+                        <span class="author">{{serie.original_name}} <br>
+    
+                        <span class="language"><img :src="'img/'+serie.original_language+'.png'" alt="">
+                        </span> <br>
+    
+                        <div >
+                            <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(serie.vote_average)"></i></span>
+                        
+                        </div>
                     </div>
                 </div>
                 

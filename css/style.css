@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #1E2D3B;
+    background: #0d0f11;
     min-height: 100vh;
 }
 
@@ -21,10 +21,11 @@ body {
     margin: 15px;
 }
 
+
 header {
     width: 100%;
     height: 70px;
-    background: rgb(46, 58, 70);
+    background: rgb(0, 0, 0);
 }
 header img {
     height: 50px;
@@ -45,32 +46,31 @@ header img {
     align-items: center;
     flex-direction: column;
     flex-basis: 200px;
-    padding: 20px;
     margin: 10px 20px;
     height: 380px;
-    background: rgb(46, 58, 70);
+    background: black;
     text-align: center;
     overflow: hidden;
-    
-    
-    
+    position: relative;
+  
 }
-.cd:hover{
-    opacity: 0.7;
-    transform: scale(1.05);
 
-}
 
 .cd img {
-    width: 90%;
-    height: 50%;
-}
-
-.cd h3 {
-    margin: 4px 0;
+    width: 100%;
+    height: 100%;
     color: white;
-    font-size: 18px;
+    
+}
+.back p:first-child{
+    margin-top: 30px;
+}
+.back p,strong {
+    margin: 2px 0;
+    color: white;
+    font-size: 12px;
     text-transform: uppercase;
+    
 }
 
 .cd span.author {
@@ -78,7 +78,7 @@ header img {
     font-size: 15px;
 }
 .cd span.language{
-    color: grey;
+    
     font-size: 10px;
     width: 40px;
     height: 40px;
@@ -98,9 +98,10 @@ header img {
 }
 .search-bar input{
     border-radius: 5px;
-    box-shadow: 8px 8px #1e2d3b;
     height: 26px;
-    border: 2px solid #2e3a46;
+    border: 2px solid black;
+    color: white;
+    background-color: black;
     
 }
 .cd span{
@@ -108,19 +109,21 @@ header img {
     text-align: center;
 }
 
+
 .search-bar button{
     margin-left: 8px;
     height: 27px;
-    color:#1e2d3b ;
-    background-color: white;
+    color:#d91921 ;
+    background-color: black;
     border-radius: 7px;
     padding: 0 8px;
+    border: 1px solid black;
 
 
 }
 .search-bar button:hover{
-    background-color: #1e2d3b;
-    color: white;
+    
+    color: red;
     cursor: pointer;
 }
 .input{
@@ -132,7 +135,7 @@ header img {
 .language img{
     width: 40px;
     height: 40px;
-    background-color: #2e3a46;
+    
    
 }
 ::-webkit-scrollbar {
@@ -164,4 +167,26 @@ header img {
     color: white;
     text-align: center;
     margin: 0 5px;
+}
+.front{
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+}
+.back{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    transition: 0.8s;
+}
+.back:hover{
+    opacity: 1;
+    background-color: black;
+    color: white;
+    
+}
+.front:hover{
+    opacity: 0;
 }
