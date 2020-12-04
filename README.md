@@ -1,2 +1,3 @@
 vue-boolflix
 
+![](boolflix.gif)
