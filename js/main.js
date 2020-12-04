@@ -18,6 +18,7 @@ const app = new Vue({
                 params:{
                     'api_key':this.apiKey,
                     'query':this.search,
+                    
 
                 }
             })
@@ -97,5 +98,20 @@ const app = new Vue({
                 })
 
             })
+        
+    },
+    computed:{
+        imgSelect(el){
+            return (el == '') ? ('https://image.tmdb.org/t/p/w500' + el) : 'https://speckyboy.com/wp-content/uploads/2019/04/404-page-web-design-inspiration-42.jpg'
+        },
+        flegLanguage(el) {
+            if (el == 'it'){
+                return (img/it.png)
+            }else if(el == 'en'){
+                return (img/encodeURI.png)
+            }else{
+                return (img/error.jpg)
+            }
+        }
     }
 })
