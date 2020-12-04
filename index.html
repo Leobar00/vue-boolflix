@@ -27,6 +27,8 @@
             <header>
                 <div class="container">
                     <img src="img/netflix.png" alt="logo" />
+                    <a href="#">Film</a>
+                    <a href="#">Serie Tv</a>                    
                 </div>
                 <span class="search-bar">
                     <input type="text" placeholder=" Cerca..." v-model="search" @keyup.enter="filter" class="input">
@@ -35,51 +37,59 @@
                 
         
             </header>
+            <div class="film">
+                
+                <h2 class="title" v-if="visibleTitle()">Film</h2>
+                <div class="cds-container">
+                
+                    
+                    <div class="cd" v-for="el in resultArray">
+                        <!-- immagine copertina -->
+                        <div class="front"> 
+    
+                            <img :src="'https://image.tmdb.org/t/p/w500' + el.poster_path" :alt="el.title">
+    
+                        </div>
+                        <!-- specifiche tecniche -->
+                        <div class="back">
+    
+                            <p><strong>Titolo: </strong>{{el.title}}</p> <br>
         
-            <div class="cds-container">
-            
-
-                <div class="cd" v-for="el in resultArray">
-                    <!-- immagine copertina -->
-                    <div class="front"> 
-
-                        <img :src="'https://image.tmdb.org/t/p/w500' + el.poster_path" :alt="el.title">
-
-                    </div>
-                    <!-- specifiche tecniche -->
-                    <div class="back">
-
-                        <p><strong>Titolo: </strong>{{el.title}}</p> <br>
-    
-                        <p class="author"><strong>Titolo originale: </strong>{{el.original_title}}</p> <br>
-    
-                        <p class="language"><img  :src="'img/'+el.original_language+'.png'" alt=""></p><br>
-    
-                        <div v-for="">
-                            <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(el.vote_average)"></i></span>
-    
+                            <p class="author"><strong>Titolo originale: </strong>{{el.original_title}}</p> <br>
+        
+                            <p class="language"><img  :src="'img/'+el.original_language+'.png'" alt=""></p><br>
+        
+                            <div v-for="">
+                                <p class="voto"><strong>Voto: </strong><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(el.vote_average)"></i></p>
+        
+                            </div>
+                            <p class="overview"><strong>Overview: </strong>{{el.overview}}</p>
                         </div>
                     </div>
                 </div>
                 <!-- serie tv -->
-                
-                <div class="cd" v-for="serie in serieTv">
-                    <div class="front">
-                        <img :src="'https://image.tmdb.org/t/p/w500' + serie.poster_path" alt="">
+                <h2 class="title" v-if="visibleTitle()">Serie Tv</h2>
+                <div class="cds-container">
 
-                    </div>
-                    <div class="back">
-
-                        <h3>{{serie.name}}</h3>
+                    <div class="cd " v-for="serie in serieTv">
+                        <div class="front">
+                            <img :src="'https://image.tmdb.org/t/p/w500' + serie.poster_path" alt="">
     
-                        <span class="author">{{serie.original_name}} <br>
+                        </div>
+                        <div class="back">
     
-                        <span class="language"><img :src="'img/'+serie.original_language+'.png'" alt="">
-                        </span> <br>
-    
-                        <div >
-                            <span class="voto"><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(serie.vote_average)"></i></span>
-                        
+                            <p><strong>Titolo: </strong>{{serie.name}}</p>
+        
+                            <p class="author"><strong>Titolo originale: </strong>{{serie.original_name}}</p> <br>
+        
+                            <p class="language"><img :src="'img/'+serie.original_language+'.png'" alt="">
+                            </p> <br>
+        
+                            <div >
+                                <p class="voto"><strong>Voto: </strong><i class="fa fa-star" aria-hidden="true" v-for="star in starsEmpty(serie.vote_average)"></i></p>
+                            
+                            </div>
+                            <p class="overview"><strong>Overview:</strong>{{serie.overview}}</p>
                         </div>
                     </div>
                 </div>

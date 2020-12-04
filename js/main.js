@@ -45,10 +45,18 @@ const app = new Vue({
             this.search='';
 
         },
+        visibleTitle(){
+            if(this.resultArray.length > 0 && this.serieTv.length > 0){
+               return true
+            }else{
+                return false
+            }
+        },
         // valutazioni
         starsEmpty(n){
             return Math.ceil(n/2);
         },
+        
         
         // handleImgNotFound(e){
         //     e.target.src='img'
