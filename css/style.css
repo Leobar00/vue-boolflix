@@ -28,6 +28,7 @@ body {
 .container img{
     height: 40px;
     margin: 15px;
+    cursor: pointer;
 }
 
 
@@ -76,9 +77,7 @@ header img {
     color: white;
     
 }
-.back p:first-child{
-    
-}
+
 .back p {
     margin: 4px 0;
     color: white;
@@ -207,6 +206,7 @@ header img {
 }
 .container a{
     color: white;
+    padding: 30px;
 }
 .overview{
     text-overflow: ellipsis;

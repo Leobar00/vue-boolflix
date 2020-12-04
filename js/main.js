@@ -5,6 +5,8 @@ const app = new Vue({
         search:'',      //barra di ricerca
         resultArray:[],    // array con film
         serieTv:[],        //arrau con serie tv
+        filmPopularHome:[],
+        seriePopularHome:[],
         apiKey:'518b31ac0cdefdc1e2ca95a2535a9e17', //chiave api
         pageSelect:1,     //selezione per la pagina 
     },
@@ -39,7 +41,9 @@ const app = new Vue({
                     this.serieTv.push(movie)
                 })
 
-            })
+            });
+            document.querySelector('.home').style.display = 'none';
+
             
             
             this.search='';
@@ -52,10 +56,22 @@ const app = new Vue({
                 return false
             }
         },
+        visibleTitleHome() {
+            if (this.seriePopularHome.length > 0 && this.filmPopularHome.length > 0) {
+                return true
+            } else {
+                return false
+            }
+        },
         // valutazioni
         starsEmpty(n){
             return Math.ceil(n/2);
         },
+        homeButton(){
+            document.querySelector('.home').style.display = 'block';
+            this.serieTv=[];
+            this.resultArray=[]; 
+        }
         
         
         // handleImgNotFound(e){
@@ -63,5 +79,23 @@ const app = new Vue({
         // }
         
         
+    },
+    mounted(){
+        axios.get('https://api.themoviedb.org/3/trending/all/day', {
+            params: {
+                'api_key': this.apiKey,
+            }
+        })
+            .then(s => {
+                s.data.results.forEach(popular => {
+                    if(popular.original_name){
+                        this.seriePopularHome.push(popular)
+                    }else{
+
+                        this.filmPopularHome.push(popular)
+                    }
+                })
+
+            })
     }
 })
